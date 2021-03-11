@@ -1,14 +1,17 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, ScrollView } from 'react-native'
+import CustomListItem from '../components/items/CustomListItem'
 
 const Home = () => {
     return (
         <View>
-            <Text></Text>
+            <ScrollView>
+                <CustomListItem />
+            </ScrollView>
         </View>
     )
 }
 
-export default Home
+export default Home;
 
 const styles = StyleSheet.create({})

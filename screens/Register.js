@@ -18,12 +18,13 @@ const Register = ({ navigation }) => {
     }, [navigation])
 
     const registerUser = () => {
-        auth.createUserWithEmailAndPassword(email, password)
-            .then(authUser => {
-                authUser.user.updateEmail({
+        auth
+            .createUserWithEmailAndPassword(email, password)
+            .then((authUser) => {
+                authUser.user.updateProfile({
                     displayName: name,
-                    photoURL: imageUrl || "https://icotar.com/avatar/wcy3825im6a5oibn.png?s=40"
-                })
+                    photoURL: imageUrl || "https://icotar.com/avatar/wcy3825im6a5oibn.png?s=40",
+                });
             })
             .catch((error) => alert(error.message));
     };
@@ -37,26 +38,26 @@ const Register = ({ navigation }) => {
                     autofocus
                     type="text"
                     value={name}
-                    onChange={text => setName(text)}
+                    onChangeText={(text) => setName(text)}
                 />
                 <Input
                     placeholder="Email"
                     type="email"
                     value={email}
-                    onChange={email => setEmail(email)}
+                    onChangeText={(text) => setEmail(text)}
                 />
                 <Input
                     placeholder="Password"
                     type="password"
                     secureTextEntry
                     value={password}
-                    onChange={text => setPassword(text)}
+                    onChangeText={(text) => setPassword(text)}
                 />
                 <Input
                     placeholder="Profile Picture Url"
                     type="text"
                     value={imageUrl}
-                    onChange={text => setImageUrl(text)}
+                    onChangeText={(text) => setImageUrl(text)}
                     onSubmitEditing={registerUser}
                 />
             </View>

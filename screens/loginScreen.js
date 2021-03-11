@@ -1,16 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { KeyboardAvoidingView } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
-import { View,StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { Button, Image, Input } from 'react-native-elements'
+import { auth } from '../firebase'
 
 const loginScreen = ({ navigation }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((authUser) => {
+            if (authUser) {
+                navigation.replace("Home")
+            }
+        });
+        return unsubscribe;
+    }, [])
+
     const signIn = () => {
 
     }
+
     const register = () => {
         navigation.navigate("Register")
     }
@@ -41,7 +52,7 @@ const loginScreen = ({ navigation }) => {
 
             <Button containerStyle={styles.button} onPress={signIn} title="Login" />
             <Button containerStyle={styles.button} onPress={register} title="Register" type="outline" />
-            <View style={{ height:150}} />
+            <View style={{ height: 150 }} />
 
         </KeyboardAvoidingView>
     )

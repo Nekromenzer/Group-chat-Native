@@ -17,7 +17,7 @@ export default function App() {
       <Stack.Navigator screenOptions={globalScreenOptions}>
         <Stack.Screen
           options={{
-            title: "Lets Build React App"
+            title: "Login"
           }}
           name="login" component={loginScreen} />
         {/* <View style={styles.container}>

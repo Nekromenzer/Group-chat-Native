@@ -17,9 +17,9 @@ const loginScreen = () => {
             <StatusBar style="light" />
             <Image
                 source={require("../components/logo/logo.png")}
-                style={{ width: 100, height: 100 }}
+                style={styles.logo}
             />
-            <View styele={styles.inputContainer}>
+            <View style={styles.inputContainer}>
                 <Input
                     placeholder="Email"
                     autofocus
@@ -34,13 +34,12 @@ const loginScreen = () => {
                     value={password}
                     onChangeText={(text) => setPassword(text)}
                 />
+            </View>
 
-                <Text>Iam the login screen dasd</Text>
-            </View>
-            <View>
-                <Button containerStyle={styles.button} onPress={signIn} title="Login" />
-                <Button containerStyle={styles.button} onPress={signIn} title="Register" type="outline" />
-            </View>
+            <Button containerStyle={styles.button} onPress={signIn} title="Login" />
+            <Button containerStyle={styles.button} onPress={signIn} title="Register" type="outline" />
+            <View style={{ height: "100px" }} />
+
         </KeyboardAvoidingView>
     )
 }
@@ -51,8 +50,20 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        padding: 10
+        padding: 10,
+        backgroundColor: "white"
     },
-    inputContainer: {},
-    button: {}
+    logo: {
+        width: 100,
+        height: 100,
+        marginBottom:40
+    },
+    inputContainer: {
+        width: 300,
+        marginBottom:10
+    },
+    button: {
+        width: 200,
+        marginTop: 10,
+    }
 });

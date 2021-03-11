@@ -4,12 +4,15 @@ import { StatusBar } from 'react-native'
 import { View, Text, StyleSheet } from 'react-native'
 import { Button, Image, Input } from 'react-native-elements'
 
-const loginScreen = () => {
+const loginScreen = ({ navigation }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const signIn = () => {
 
+    }
+    const register = () => {
+        navigation.navigate("Register")
     }
 
     return (
@@ -37,7 +40,7 @@ const loginScreen = () => {
             </View>
 
             <Button containerStyle={styles.button} onPress={signIn} title="Login" />
-            <Button containerStyle={styles.button} onPress={signIn} title="Register" type="outline" />
+            <Button containerStyle={styles.button} onPress={register} title="Register" type="outline" />
             <View style={{ height: "100px" }} />
 
         </KeyboardAvoidingView>
@@ -56,11 +59,11 @@ const styles = StyleSheet.create({
     logo: {
         width: 100,
         height: 100,
-        marginBottom:40
+        marginBottom: 40
     },
     inputContainer: {
         width: 300,
-        marginBottom:10
+        marginBottom: 10
     },
     button: {
         width: 200,

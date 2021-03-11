@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { KeyboardAvoidingView } from 'react-native'
-import { StatusBar } from 'react-native'
-import { View, Text, StyleSheet } from 'react-native'
+import { StatusBar } from 'expo-status-bar'
+import { View,StyleSheet } from 'react-native'
 import { Button, Image, Input } from 'react-native-elements'
 
 const loginScreen = ({ navigation }) => {
@@ -41,7 +41,7 @@ const loginScreen = ({ navigation }) => {
 
             <Button containerStyle={styles.button} onPress={signIn} title="Login" />
             <Button containerStyle={styles.button} onPress={register} title="Register" type="outline" />
-            <View style={{ height: "100px" }} />
+            <View style={{ height:150}} />
 
         </KeyboardAvoidingView>
     )

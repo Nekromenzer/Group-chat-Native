@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { StyleSheet, Text, View } from 'react-native';
 import loginScreen from './screens/loginScreen';
 import { createStackNavigator } from '@react-navigation/stack';
+import Register from './screens/Register';
 
 const Stack = createStackNavigator();
 const globalScreenOptions = {
@@ -15,15 +16,9 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={globalScreenOptions}>
-        <Stack.Screen
-          options={{
-            title: "Login"
-          }}
-          name="login" component={loginScreen} />
-        {/* <View style={styles.container}>
-          <StatusBar style="auto" />
-          <Text>dsfsdf</Text>
-        </View> */}
+        <Stack.Screen name="login" component={loginScreen} />
+        <Stack.Screen name="register" component={Register} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

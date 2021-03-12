@@ -19,9 +19,11 @@ const loginScreen = ({ navigation }) => {
     }, [])
 
     const signIn = () => {
-
+        auth
+            .signInWithEmailAndPassword(email, password)
+            .catch((error) => alert(error));
     }
-
+    
     const register = () => {
         navigation.navigate("Register")
     }
@@ -47,6 +49,7 @@ const loginScreen = ({ navigation }) => {
                     type="password"
                     value={password}
                     onChangeText={(text) => setPassword(text)}
+                    onSubmitEditing={signIn}
                 />
             </View>
 

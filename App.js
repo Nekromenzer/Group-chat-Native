@@ -6,8 +6,10 @@ import loginScreen from './screens/LoginScreen';
 import { createStackNavigator } from '@react-navigation/stack';
 import Register from './screens/Register';
 import Home from './screens/Home';
+import AddChat from './screens/AddChat'
 
 const Stack = createStackNavigator();
+
 const globalScreenOptions = {
   headerStyle: { backgroundColor: "#0077B5" },
   headerTitleStyle: { color: "white" },
@@ -22,6 +24,7 @@ export default function App() {
         <Stack.Screen name="Login" component={loginScreen} />
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="AddChat" component={AddChat} />
       </Stack.Navigator>
     </NavigationContainer>
   );

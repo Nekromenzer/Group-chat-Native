@@ -12,7 +12,7 @@ const loginScreen = ({ navigation }) => {
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((authUser) => {
             if (authUser) {
-                navigation.replace("Home")
+                navigation.replace("Home");
             }
         });
         return unsubscribe;
@@ -23,9 +23,9 @@ const loginScreen = ({ navigation }) => {
             .signInWithEmailAndPassword(email, password)
             .catch((error) => alert(error));
     }
-    
+
     const register = () => {
-        navigation.navigate("Register")
+        navigation.navigate("Register");
     }
 
     return (

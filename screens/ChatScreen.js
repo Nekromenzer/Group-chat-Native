@@ -1,10 +1,12 @@
-import React, { useLayoutEffect } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React, { useLayoutEffect, useState } from 'react'
+import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Platform, KeyboardAvoidingView, StatusBar } from 'react-native'
 import { Avatar } from 'react-native-elements'
-import { TouchableOpacity } from 'react-native'
-import { Entypo, AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons';
+import { AntDesign, FontAwesome, Ionicons } from '@expo/vector-icons';
+import { ScrollView, TextInput } from 'react-native-gesture-handler';
 
 const ChatScreen = ({ navigation, route }) => {
+
+    const [input, setInput] = useState("");
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -55,14 +57,61 @@ const ChatScreen = ({ navigation, route }) => {
         });
     }, [navigation])
 
+    const sendMsg = () => {
+
+    }
 
     return (
-        <View>
-            <Text>{route.params.chatName}</Text>
-        </View>
+        <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
+            <StatusBar style="light" />
+            <KeyboardAvoidingView
+                behavior={Platform.OS === "ios" ? "padding" : "height"}
+                style={styles.container}
+                keyboardVerticalOffset={90}
+            >
+                <>
+                    <ScrollView>
+                        {/* chats goes here */}
+                    </ScrollView>
+                    <View style={styles.footer}>
+                        <TextInput
+                            value={input}
+                            onChangeText={(text) => setInput(text)}
+                            placeholder="signal massges"
+                            style={styles.textInput}
+                        />
+                        <TouchableOpacity activeOpacity={0.5} onPress={sendMsg}>
+                            <Ionicons name="send" size={24} color="#385fc9" />
+                        </TouchableOpacity>
+                    </View>
+                </>
+            </KeyboardAvoidingView>
+            {/* <Text>{route.params.chatName}</Text> */}
+        </SafeAreaView>
     )
 }
 
 export default ChatScreen;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+        flex: 1
+    },
+    footer: {
+        flexDirection: "row",
+        alignItems: "center",
+        width: "100%",
+        padding: 15
+    },
+    textInput: {
+        bottom: 0,
+        height: 40,
+        flex: 1,
+        marginRight: 15,
+        borderColor: "transparent",
+        backgroundColor: "#ECECEC",
+        padding: 10,
+        color: "grey",
+        borderRadius: 30,
+    }
+})

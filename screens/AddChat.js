@@ -16,7 +16,7 @@ const AddChat = ({ navigation }) => {
     }, [navigation]);
 
     const createChat = async () => {
-        await db.collection('chat').add({
+        await db.collection('chats').add({
             chatName: input,
         })
             .then(() => {

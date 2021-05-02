@@ -28,19 +28,20 @@ const Home = ({ navigation }) => {
         return unsubscribe;
     }, []);
 
-    const popUp = () => {
-        Alert.alert(
-            "Alert Title",
-            "My Alert Msg",
-            [
-                {
-                    text: "Cancel",
-                    onPress: () => console.log("Cancel Pressed"),
-                    style: "cancel"
-                },
-                { text: "OK", onPress: () => console.log("OK Pressed") }
-            ]);
-    }
+    // const popUp = () => {
+    //     Alert.alert(
+    //         "Alert Title",
+    //         "My Alert Msg",
+    //         [
+    //             {
+    //                 text: "Cancel",
+    //                 onPress: () => console.log("Cancel Pressed"),
+    //                 style: "cancel"
+    //             },
+    //             { text: "OK", onPress: () => console.log("OK Pressed") }
+    //         ]);
+    // }
+
     useLayoutEffect(() => {
         navigation.setOptions({
             title: "Vibes",
